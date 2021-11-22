@@ -18,14 +18,28 @@
         </ul>
     </nav>
     <main>
-        <h3>Basketball Court</h3>
-        <canvas id="canvas" width=800 height=1000></canvas>
-        <ul>
+        <!-- <h3>Basketball Court</h3> -->
+        <div class="container">
+            <canvas id="canvas" width=700 height=700></canvas>
+            <div class="output">
+                <button type="button" class="block">Predict if they score:</button>
+                <div class="outputText"></div>
+                <div class="heatmaps">Heatmaps Breakdown:
+                </div>
+                <div class="heatmap-container">
+                    <div class="ball">
+                    </div>
+                    <div class="defense">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <ul>
             <li>
                 <div id="defenseCircle"></div>Offense</li>
             <li>
                 <div id="offenseCircle"></div>Defense</li>
-        </ul>
+        </ul> -->
     </main>
 
 </body>
@@ -33,5 +47,6 @@
 <script src="main.js"></script>
 <!-- <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> -->
 <!-- <script src="canvas.js"></script> -->
+
 
 </html>

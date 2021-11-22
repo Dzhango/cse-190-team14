@@ -29,10 +29,12 @@ defense_player4.src = "defense.png"
 const defense_player5 = new Image()
 defense_player5.src = "defense.png"
 
+
+
 let offense = [{ img: offense_player1, x: 0, y: 0 }, { img: offense_player2, x: 0, y: 0 }, { img: offense_player3, x: 0, y: 0 }, { img: offense_player4, x: 0, y: 0 }, { img: offense_player5, x: 0, y: 0 }]
-let defense = [defense_player1, defense_player2, defense_player3, defense_player4, defense_player5]
+let defense = [{ img: defense_player1, x: 0, y: 0 }, { img: defense_player2, x: 0, y: 0 }, { img: defense_player3, x: 0, y: 0 }, { img: defense_player4, x: 0, y: 0 }, { img: defense_player5, x: 0, y: 0 }]
 
-
+let players = offense.concat(defense)
 
 // variables used to get mouse position on the canvas
 var $canvas = $("#canvas");
@@ -48,38 +50,6 @@ var scrollY = $canvas.scrollTop();
 var startX;
 var startY;
 
-// some text objects
-var players = [];
-
-for (let i = 0; i < 10; i++) {
-    players.push({
-        x: 20 + i * 10,
-        y: 20
-    })
-}
-
-// // some test texts
-players.push({
-    text: "Hello",
-    x: 20,
-    y: 20
-});
-players.push({
-    text: "World",
-    x: 20,
-    y: 70
-});
-
-// calculate width of each text for hit-testing purposes
-// ctx.font = "16px verdana";
-// for (var i = 0; i < players.length; i++) {
-//     var players = players[i];
-//     players.width = ctx.
-
-//     ctx.fill(text.text).width;
-//     text.height = 16;
-// }
-
 // this var will hold the index of the selected text
 var selectedImage = -1;
 
@@ -89,11 +59,11 @@ init();
 function init() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    for (let i = 0; i < 5; i++) {
-        offense[i].img.onload = function() {
-            offense[i].x += i * 50
-            offense[i].y += i * 50
-            ctx.drawImage(offense[i].img, offense[i].x, offense[i].y);
+    for (let i = 0; i < 10; i++) {
+        players[i].img.onload = function() {
+            players[i].x += i * 50
+            players[i].y += i * 50
+            ctx.drawImage(players[i].img, players[i].x, players[i].y);
         };
         // defense[i].onload = function() {
         //     ctx.drawImage(defense[i], 500 + i * 50, 500 + i * 20);
@@ -102,45 +72,24 @@ function init() {
 
 }
 
-
 // clear the canvas draw all texts
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 10; i++) {
         // offense[i].img.onload = function() {
-        ctx.drawImage(offense[i].img, offense[i].x, offense[i].y);
-        // };
-        // defense[i].onload = function() {
-        //     ctx.drawImage(defense[i], 500 + i * 50, 500 + i * 20);
-        // };
+        ctx.drawImage(players[i].img, players[i].x, players[i].y);
     }
 
 }
 
-// function move(X, Y) {
-//     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-//     for (let i = 0; i < 5; i++) {
-//         offense[i].onload = function() {
-//             ctx.drawImage(offense[i].img, 100 + i * 50, 100 + i * 20);
-//         };
-//         defense[i].onload = function() {
-//             ctx.drawImage(defense[i], 500 + i * 50, 500 + i * 20);
-//         };
-//     }
-
-// }
-
 // test if x,y is inside the bounding box of texts[textIndex]
 function textHittest(x, y, imgIndex) {
-    var offensive = offense[imgIndex];
+    var player = players[imgIndex];
     // var defensive = defense[imgIndex];
-    console.log(`x: ${x}, y: ${y}; xOffense:${offensive.x}, yOffense: ${offensive.y}`)
+    console.log(`x: ${x}, xOffense:${player.x}; y: ${y}, yOffense: ${player.y}`)
 
-    return (x >= offensive.x && x <= offensive.x + 50 && y >= offensive.y - 60 && y <= offensive.y + 60)
-        // ||
-        // (x >= defensive.x && x <= defensive.x + defensive.width && y >= defensive.y - defensive.height && y <= defdefensiveense.y);
+    return (x >= player.x && x <= player.x + 50 && y >= player.y - 50 && y <= player.y + 50)
 }
 
 // handle mousedown events
@@ -151,9 +100,13 @@ function handleMouseDown(e) {
     e.preventDefault();
     startX = parseInt(e.clientX - offsetX);
     startY = parseInt(e.clientY - offsetY);
+
+    // startX = parseInt(e.clientX);
+    // startY = parseInt(e.clientY);
+
     console.log(`${startX}, ${startY}`)
         // Put your mousedown stuff here
-    for (var i = 0; i < offense.length; i++) {
+    for (var i = 0; i < players.length; i++) {
         if (textHittest(startX, startY, i)) {
             console.log('true')
             selectedImage = i;
@@ -194,8 +147,8 @@ function handleMouseMove(e) {
     startX = mouseX;
     startY = mouseY;
     // var player = offense[selectedImage];
-    offense[selectedImage].x += dx;
-    offense[selectedImage].y += dy;
+    players[selectedImage].x += dx;
+    players[selectedImage].y += dy;
     draw();
 }
 
@@ -212,3 +165,102 @@ $("#canvas").mouseup(function(e) {
 $("#canvas").mouseout(function(e) {
     handleMouseOut(e);
 });
+
+
+const buttonPredict = document.querySelector("button")
+const outputHtml = document.querySelector('.output div')
+const container = document.querySelector('.output')
+    // const offenseDiv = document.querySelector('.ball')
+const defenseDiv = document.querySelector('.defense')
+
+buttonPredict.addEventListener('click', (e) => {
+    // buttonPredict.disabled = true
+    shuffle(imagesOffense)
+    shuffle(imagesDefense)
+    const offenseDiv = document.querySelector('.ball')
+    const defenseDiv = document.querySelector('.defense')
+    removeAllChildNodes(offenseDiv)
+    removeAllChildNodes(defenseDiv)
+
+    const offense = document.createElement('p')
+    offense.innerText = "Offense"
+    offenseDiv.appendChild(offense)
+    offenseDiv.appendChild(imagesOffense[0])
+    offenseDiv.appendChild(imagesOffense[1])
+    offenseDiv.appendChild(imagesOffense[2])
+
+    const defense = document.createElement('p')
+    defense.innerText = "Defense"
+    defenseDiv.appendChild(defense)
+    defenseDiv.appendChild(imagesDefense[0])
+    defenseDiv.appendChild(imagesDefense[1])
+    defenseDiv.appendChild(imagesDefense[2])
+
+
+    if (Math.random() > 0.5) {
+        outputHtml.innerText = 'They will score'
+    } else {
+        outputHtml.innerText = 'They won\'t score'
+    }
+})
+
+imagesOffense = []
+imagesDefense = []
+for (let i = 0; i < 10; i++) {
+    const img = document.createElement('img')
+    if (i >= 5) {
+        img.src = `heatmaps/defense${i-4}.png`
+        imagesDefense.push(img)
+    } else {
+        img.src = `heatmaps/ball${i+1}.png`
+        imagesOffense.push(img)
+    }
+}
+
+function showHeatMaps() {
+    imagesOffense[0].onload = () => {
+        offenseDiv.appendChild(imagesOffense[0])
+    }
+    imagesOffense[1].onload = () => {
+        offenseDiv.appendChild(imagesOffense[1])
+    }
+    imagesOffense[2].onload = () => {
+        offenseDiv.appendChild(imagesOffense[2])
+    }
+
+    imagesDefense[0].onload = () => {
+        defenseDiv.appendChild(imagesDefense[0])
+    }
+    imagesDefense[1].onload = () => {
+        defenseDiv.appendChild(imagesDefense[1])
+    }
+    imagesDefense[2].onload = () => {
+        defenseDiv.appendChild(imagesDefense[2])
+    }
+}
+
+function shuffle(array) {
+    let currentIndex = array.length,
+        randomIndex;
+
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]
+        ];
+    }
+
+    return array;
+}
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
