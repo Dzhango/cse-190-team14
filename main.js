@@ -2,7 +2,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d')
 
 const offense_player1 = new Image()
-offense_player1.src = "ball.png"
+offense_player1.src = "point-guard.png"
 const offense_player2 = new Image()
 offense_player2.src = "offense.png"
 const offense_player3 = new Image()
@@ -59,16 +59,68 @@ init();
 function init() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    for (let i = 0; i < 10; i++) {
-        players[i].img.onload = function() {
-            players[i].x += i * 50
-            players[i].y += i * 50
-            ctx.drawImage(players[i].img, players[i].x, players[i].y);
-        };
-        // defense[i].onload = function() {
-        //     ctx.drawImage(defense[i], 500 + i * 50, 500 + i * 20);
-        // };
-    }
+
+    // find a way to display players on an arc
+    players[0].img.onload = function() {
+        players[0].x = 230
+        players[0].y = 315
+        ctx.drawImage(players[0].img, players[0].x, players[0].y);
+    };
+    players[1].img.onload = function() {
+        players[1].x = 300
+        players[1].y = 139
+        ctx.drawImage(players[1].img, players[1].x, players[1].y);
+    };
+    players[2].img.onload = function() {
+        players[2].x = 550
+        players[2].y = 50
+        ctx.drawImage(players[2].img, players[2].x, players[2].y);
+    };
+    players[3].img.onload = function() {
+        players[3].x = 344
+        players[3].y = 544
+        ctx.drawImage(players[3].img, players[3].x, players[3].y);
+    };
+    players[4].img.onload = function() {
+        players[4].x = 550
+        players[4].y = 590
+        ctx.drawImage(players[4].img, players[4].x, players[4].y);
+    };
+
+
+    players[5].img.onload = function() {
+        players[5].x = 350
+        players[5].y = 320
+        ctx.drawImage(players[5].img, players[5].x, players[5].y);
+    };
+    players[6].img.onload = function() {
+        players[6].x = 370
+        players[6].y = 200
+        ctx.drawImage(players[6].img, players[6].x, players[6].y);
+    };
+    players[7].img.onload = function() {
+        players[7].x = 370
+        players[7].y = 450
+        ctx.drawImage(players[7].img, players[7].x, players[7].y);
+    };
+    players[8].img.onload = function() {
+        players[8].x = 500
+        players[8].y = 230
+        ctx.drawImage(players[8].img, players[8].x, players[8].y);
+    };
+    players[9].img.onload = function() {
+        players[9].x = 500
+        players[9].y = 420
+        ctx.drawImage(players[9].img, players[9].x, players[9].y);
+    };
+
+    // for (let i = 5; i < 10; i++) {
+    //     players[i].img.onload = function() {
+    //         players[i].x = 400 + i * 10
+    //         players[i].y = 351 + i * 10
+    //         ctx.drawImage(players[i].img, players[i].x, players[i].y);
+    //     };
+    // }
 
 }
 
@@ -186,15 +238,15 @@ buttonPredict.addEventListener('click', (e) => {
     offense.innerText = "Offense"
     offenseDiv.appendChild(offense)
     offenseDiv.appendChild(imagesOffense[0])
-    offenseDiv.appendChild(imagesOffense[1])
-    offenseDiv.appendChild(imagesOffense[2])
+        // offenseDiv.appendChild(imagesOffense[1])
+        // offenseDiv.appendChild(imagesOffense[2])
 
     const defense = document.createElement('p')
     defense.innerText = "Defense"
     defenseDiv.appendChild(defense)
     defenseDiv.appendChild(imagesDefense[0])
-    defenseDiv.appendChild(imagesDefense[1])
-    defenseDiv.appendChild(imagesDefense[2])
+        // defenseDiv.appendChild(imagesDefense[1])
+        // defenseDiv.appendChild(imagesDefense[2])
 
 
     if (Math.random() > 0.5) {

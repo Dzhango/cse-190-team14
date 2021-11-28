@@ -21,32 +21,54 @@
         <!-- <h3>Basketball Court</h3> -->
         <div class="container">
             <canvas id="canvas" width=700 height=700></canvas>
-            <div class="output">
-                <button type="button" class="block">Predict if they score:</button>
-                <div class="outputText"></div>
-                <div class="heatmaps">Heatmaps Breakdown:
+            <div class="inputs">
+                <div class="input-menus">
+                    <label for="offense">Offense</label>
+                    <select id="offense">
+                        <option value="Brooklyn Nets">Brooklyn Nets</option>
+                        <option value="Golden State Warriors">Golden State Warriors</option>
+                        <option value="Toronto Raptors">Toronto Raptors</option>
+                    </select>
+                    <label for="guard">Ball-handler</label>
+                    <select id="guard">
+                        <option value="Stephen Curry">Stephen Curry</option>
+                        <option value="James Harden">James Harden</option>
+                        <option value="Luca Doncic">Luca Doncic</option>
+                    </select>
+                    <label for="defense">Defense</label>
+                    <select id="defense">
+                        <option value="New York Knicks">New York Knicks</option>
+                        <option value="Houston Rockets">Houston Rockets</option>
+                        <option value="Los Angeles Lakers">Los Angeles Lakers</option>
+                    </select>
                 </div>
-                <div class="heatmap-container">
-                    <div class="ball">
+                <div class="output">
+                    <button type="button " class="block ">Predict if offense scores:</button>
+                    <div class="outputText "></div>
+                    <div class="heatmaps ">Shooting Probability Visualization:
                     </div>
-                    <div class="defense">
+                    <div class="heatmap-container">
+                        <div class="ball">
+                        </div>
+                        <div class="defense ">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- <ul>
             <li>
-                <div id="defenseCircle"></div>Offense</li>
+                <div id="defenseCircle "></div>Offense</li>
             <li>
-                <div id="offenseCircle"></div>Defense</li>
+                <div id="offenseCircle "></div>Defense</li>
         </ul> -->
     </main>
 
 </body>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script src="main.js"></script>
-<!-- <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> -->
-<!-- <script src="canvas.js"></script> -->
+<script type="text/javascript " src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js "></script>
+<script src="main.js "></script>
+<!-- <script src="https://code.createjs.com/1.0.0/createjs.min.js "></script> -->
+<!-- <script src="canvas.js "></script> -->
 
 
 </html>
