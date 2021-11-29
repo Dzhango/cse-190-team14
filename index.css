@@ -119,5 +119,21 @@ nav {
 }
 
 #ballPlayer {
-    color: red;
+    color: darkgreen;
+}
+
+.feedback {
+    margin-top: 30px;
+}
+
+label[for="offense"] {
+    color: darkred;
+}
+
+label[for="guard"] {
+    color: darkgreen;
+}
+
+label[for="defense"] {
+    color: #0c9dcb;
 }

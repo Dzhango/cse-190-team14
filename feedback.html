@@ -10,14 +10,17 @@
 </head>
 
 <body>
-    <!-- <nav>
+    <nav>
         <ul>
             <li><a href="/">Tool</a></li>
             <li>
                 <a href="instructions.html">Instructions</a>
             </li>
+            <li>
+                <a href="feedback.html">Feedback</a>
+            </li>
         </ul>
-    </nav> -->
+    </nav>
     <main>
         <!-- <h3>Basketball Court</h3> -->
         <div class="container">
@@ -50,33 +53,13 @@
                     </div>
                 </div>
                 <div class="output">
-                    <button type="button " class="block ">Predict if offense scores:</button>
-                    <div class="outputText "></div>
-                    <div class="heatmaps ">Shooting Probability Visualization:
-                    </div>
-                    <div class="heatmap-container">
-                        <div class="ball">
-
-                        </div>
-                        <div class="defense ">
-
-                        </div>
-                        <div class="color-indicator">
-                            <img src="indicator.png" alt="indicator">
-                        </div>
-                    </div>
-                    <div class="text-output">
-                        <div class="text-container">
-                            <p><span>Offense</span> heatmap shows areas on the court that <span id="ballPlayer"></span> likes scoring from</p>
-                        </div>
-                        <div class="text-container">
-                            <p><span>Defense</span> heatmap shows area around ballhandler and how defenders there affect their scoring probabilty</p>
-                        </div>
-                    </div>
                     <div class="feedback">
-                        <input type="radio">Offense scored</input>
-                        <input type="radio">Offense didn't score</input>
-                        <button type=" submit ">Submit</button>
+                        <form action="post">
+                            <input type="text" placeholder="Your comments"></input>
+                            <input type="radio">Offense will score</input>
+                            <input type="radio">Offense won't score</input>
+                            <button type=" submit ">Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -91,7 +74,7 @@
 
 </body>
 <script type="text/javascript " src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js "></script>
-<script src="main.js "></script>
+<script src="feedback.js "></script>
 <!-- <script src="https://code.createjs.com/1.0.0/createjs.min.js "></script> -->
 <!-- <script src="canvas.js "></script> -->
 

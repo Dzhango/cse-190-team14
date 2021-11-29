@@ -220,39 +220,13 @@ const container = document.querySelector('.output')
 const defenseDiv = document.querySelector('.defense')
 const imageIndicator = document.querySelector('.color-indicator img')
 const text = document.querySelectorAll('p')
-imageIndicator.style.display = 'none'
-text[0].style.display = 'none'
-text[1].style.display = 'none'
-const feedback = document.querySelector('.feedback')
-feedback.style.display = 'none'
+
 
 buttonPredict.addEventListener('click', (e) => {
     if (canvasChange === false) {
 
         return
     }
-    // buttonPredict.disabled = true
-    shuffle(imagesOffense)
-    shuffle(imagesDefense)
-    const offenseDiv = document.querySelector('.ball')
-    const defenseDiv = document.querySelector('.defense')
-    removeAllChildNodes(offenseDiv)
-    removeAllChildNodes(defenseDiv)
-
-    const offense = document.createElement('p')
-    offense.innerText = "Offense"
-    offenseDiv.appendChild(offense)
-    offenseDiv.appendChild(imagesOffense[0])
-        // offenseDiv.appendChild(imagesOffense[1])
-        // offenseDiv.appendChild(imagesOffense[2])
-
-    const defense = document.createElement('p')
-    defense.innerText = "Defense"
-    defenseDiv.appendChild(defense)
-    defenseDiv.appendChild(imagesDefense[0])
-        // defenseDiv.appendChild(imagesDefense[1])
-        // defenseDiv.appendChild(imagesDefense[2])
-
 
     if (Math.random() > 0.5) {
         outputHtml.innerText = 'Offense will score'
@@ -263,14 +237,7 @@ buttonPredict.addEventListener('click', (e) => {
     const ballHandler = document.getElementById('guard')
     const ballPlayer = ballHandler.value;
 
-    const textOutput = document.getElementById('ballPlayer')
-    textOutput.innerText = ballPlayer
     canvasChange = false;
-
-    imageIndicator.style.display = 'block'
-    text[0].style.display = 'inline'
-    text[1].style.display = 'inline'
-    feedback.style.display = 'block'
 })
 
 imagesOffense = []
@@ -333,13 +300,3 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-
-const submitBtn = document.querySelector('.feedback button')
-
-
-// Reload everything:
-function reload() {
-    reload = location.reload();
-}
-// Event listeners for reload.
-submitBtn.addEventListener("click", reload, false);
