@@ -29,6 +29,7 @@ defense_player4.src = "defense.png"
 const defense_player5 = new Image()
 defense_player5.src = "defense.png"
 
+let canvasChange = false;
 
 
 let offense = [{ img: offense_player1, x: 0, y: 0 }, { img: offense_player2, x: 0, y: 0 }, { img: offense_player3, x: 0, y: 0 }, { img: offense_player4, x: 0, y: 0 }, { img: offense_player5, x: 0, y: 0 }]
@@ -113,14 +114,7 @@ function init() {
         players[9].y = 420
         ctx.drawImage(players[9].img, players[9].x, players[9].y);
     };
-
-    // for (let i = 5; i < 10; i++) {
-    //     players[i].img.onload = function() {
-    //         players[i].x = 400 + i * 10
-    //         players[i].y = 351 + i * 10
-    //         ctx.drawImage(players[i].img, players[i].x, players[i].y);
-    //     };
-    // }
+    canvasChange = true;
 
 }
 
@@ -132,7 +126,7 @@ function draw() {
         // offense[i].img.onload = function() {
         ctx.drawImage(players[i].img, players[i].x, players[i].y);
     }
-
+    canvasChange = true;
 }
 
 // test if x,y is inside the bounding box of texts[textIndex]
@@ -226,6 +220,9 @@ const container = document.querySelector('.output')
 const defenseDiv = document.querySelector('.defense')
 
 buttonPredict.addEventListener('click', (e) => {
+    if (canvasChange === false) {
+        return
+    }
     // buttonPredict.disabled = true
     shuffle(imagesOffense)
     shuffle(imagesDefense)
@@ -250,10 +247,16 @@ buttonPredict.addEventListener('click', (e) => {
 
 
     if (Math.random() > 0.5) {
-        outputHtml.innerText = 'They will score'
+        outputHtml.innerText = 'Offense will score'
     } else {
-        outputHtml.innerText = 'They won\'t score'
+        outputHtml.innerText = 'Offense won\'t score'
     }
+    const ballHandler = document.getElementById('guard')
+    const ballPlayer = ballHandler.value;
+
+    const textOutput = document.getElementById('ballPlayer')
+    textOutput.innerText = ballPlayer
+    canvasChange = false;
 })
 
 imagesOffense = []

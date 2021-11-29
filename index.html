@@ -12,9 +12,13 @@
 <body>
     <nav>
         <ul>
-            <li>Tool</li>
-            <li>Instructions</li>
-            <li>About Us</li>
+            <li><a href="/">Tool</a></li>
+            <li>
+                <a href="instructions.html">Instructions</a>
+            </li>
+            <li>
+                <a href="feedback.html">Feedback</a>
+            </li>
         </ul>
     </nav>
     <main>
@@ -23,24 +27,30 @@
             <canvas id="canvas" width=700 height=700></canvas>
             <div class="inputs">
                 <div class="input-menus">
-                    <label for="offense">Offense</label>
-                    <select id="offense">
-                        <option value="Brooklyn Nets">Brooklyn Nets</option>
-                        <option value="Golden State Warriors">Golden State Warriors</option>
-                        <option value="Toronto Raptors">Toronto Raptors</option>
-                    </select>
-                    <label for="guard">Ball-handler</label>
-                    <select id="guard">
-                        <option value="Stephen Curry">Stephen Curry</option>
-                        <option value="James Harden">James Harden</option>
-                        <option value="Luca Doncic">Luca Doncic</option>
-                    </select>
-                    <label for="defense">Defense</label>
-                    <select id="defense">
-                        <option value="New York Knicks">New York Knicks</option>
-                        <option value="Houston Rockets">Houston Rockets</option>
-                        <option value="Los Angeles Lakers">Los Angeles Lakers</option>
-                    </select>
+                    <div class="menu-block">
+                        <label for="offense">Offense:</label>
+                        <select id="offense">
+                            <option value="Brooklyn Nets">Brooklyn Nets</option>
+                            <option value="Golden State Warriors">Golden State Warriors</option>
+                            <option value="Toronto Raptors">Toronto Raptors</option>
+                        </select>
+                    </div>
+                    <div class="menu-block">
+                        <label for="guard">Ball-handler:</label>
+                        <select id="guard">
+                            <option value="Stephen Curry">Stephen Curry</option>
+                            <option value="James Harden">James Harden</option>
+                            <option value="Luca Doncic">Luca Doncic</option>
+                        </select>
+                    </div>
+                    <div class="menu-block">
+                        <label for="defense">Defense:</label>
+                        <select id="defense">
+                            <option value="New York Knicks">New York Knicks</option>
+                            <option value="Houston Rockets">Houston Rockets</option>
+                            <option value="Los Angeles Lakers">Los Angeles Lakers</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="output">
                     <button type="button " class="block ">Predict if offense scores:</button>
@@ -49,8 +59,21 @@
                     </div>
                     <div class="heatmap-container">
                         <div class="ball">
+
                         </div>
                         <div class="defense ">
+
+                        </div>
+                        <div class="color-indicator">
+                            <img src="indicator.png" alt="indicator">
+                        </div>
+                    </div>
+                    <div class="text-output">
+                        <div class="text-container">
+                            <p><span>Offense</span> heatmap indicates that <span id="ballPlayer"></span> will score based on his shooting accuracy blah blah</p>
+                        </div>
+                        <div class="text-container">
+                            <p><span>Defense</span> heatmap portrays optimal defense formation to minimize probability of scoring</p>
                         </div>
                     </div>
                 </div>

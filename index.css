@@ -7,71 +7,26 @@ h5,
 h6,
 p,
 li,
-ul {
+ul,
+a,
+a:visited {
     /* margin: 0;
     padding: 0; */
     list-style-type: none;
+    text-decoration: none;
+    color: black;
+    font-family: monospace;
+    font-size: 14px;
 }
-
-
-/*
-body {
-    font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-nav ul {
-    display: flex;
-}
-
-nav ul li {
-    flex: 1;
-    text-align: center;
-    padding: 1rem
-}
-
-main {
-    margin: auto;
-    width: 80%;
-    margin-top: 2rem;
-}
-
-main ul {
-    display: flex;
-}
-
-main ul li {
-    margin: 1rem;
-}
-
-#defenseCircle {
-    height: 2rem;
-    width: 2rem;
-    background-color: crimson;
-    border-radius: 50%;
-}
-
-#offenseCircle {
-    height: 2rem;
-    width: 2rem;
-    background-color: lightskyblue;
-    border-radius: 50%;
-}
-
-canvas {
-    width: 50%;
-    height: 20rem;
-    background-color: #EBECF0;
-} */
 
 body {
     background-color: ivory;
 }
 
 #canvas {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-image: url('half_court.png');
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: 80%;
 }
@@ -81,7 +36,12 @@ ul {
 }
 
 li {
-    flex: 1
+    flex: 1;
+    text-align: center;
+}
+
+nav {
+    margin-bottom: 50px;
 }
 
 .container {
@@ -99,13 +59,11 @@ li {
     cursor: pointer;
     text-align: center;
     color: white;
-    /* margin: 10% */
 }
 
 .output {
     width: 100%;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-right: 10%;
 }
 
 .output .outputText {
@@ -122,41 +80,44 @@ li {
 .heatmap-container {
     display: flex;
     justify-content: space-around;
-    /* margin: 10%; */
 }
 
 .ball {
-    /* flex: 1; */
-    /* width: 50%; */
-    width: 30%;
-    /* height: 200px; */
     text-align: center;
     display: flex;
     flex-direction: column;
 }
 
 .ball img {
-    max-height: 119px;
+    height: 200px;
+    width: 166px;
 }
 
 .defense {
-    /* flex: 1; */
-    width: 30%;
     text-align: center;
     display: flex;
     flex-direction: column;
 }
 
 .defense img {
-    max-height: 100%;
-}
-
-.inputs {
-    margin-left: 50px;
+    height: 200px;
+    width: 166px;
 }
 
 .container .input-menus {
     display: flex;
+    justify-content: center;
     margin-bottom: 25px;
-    margin-left: 5%;
+}
+
+.text-output {
+    display: flex;
+}
+
+.text-container {
+    padding: 20px;
+}
+
+#ballPlayer {
+    color: red;
 }
