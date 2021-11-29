@@ -218,9 +218,16 @@ const outputHtml = document.querySelector('.output div')
 const container = document.querySelector('.output')
     // const offenseDiv = document.querySelector('.ball')
 const defenseDiv = document.querySelector('.defense')
+const imageIndicator = document.querySelector('.color-indicator img')
+const text = document.querySelectorAll('p')
+imageIndicator.style.display = 'none'
+text[0].style.display = 'none'
+text[1].style.display = 'none'
+
 
 buttonPredict.addEventListener('click', (e) => {
     if (canvasChange === false) {
+
         return
     }
     // buttonPredict.disabled = true
@@ -251,12 +258,17 @@ buttonPredict.addEventListener('click', (e) => {
     } else {
         outputHtml.innerText = 'Offense won\'t score'
     }
+
     const ballHandler = document.getElementById('guard')
     const ballPlayer = ballHandler.value;
 
     const textOutput = document.getElementById('ballPlayer')
     textOutput.innerText = ballPlayer
     canvasChange = false;
+
+    imageIndicator.style.display = 'block'
+    text[0].style.display = 'inline'
+    text[1].style.display = 'inline'
 })
 
 imagesOffense = []
