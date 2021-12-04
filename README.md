@@ -1,3 +1,3 @@
-# cse-190-team14
+# CoachAssist
 
-https://dzhango.github.io/cse-190-team14/
+Clone this repo to your machine and open index.html on your browser to use the tool yourself
