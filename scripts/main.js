@@ -2,32 +2,32 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d')
 
 const offense_player1 = new Image()
-offense_player1.src = "point-guard.png"
+offense_player1.src = "../assets/point-guard.png"
 const offense_player2 = new Image()
-offense_player2.src = "offense.png"
+offense_player2.src = "../assets/offense.png"
 const offense_player3 = new Image()
-offense_player3.src = "offense.png"
+offense_player3.src = "../assets/offense.png"
 
 const offense_player4 = new Image()
-offense_player4.src = "offense.png"
+offense_player4.src = "../assets/offense.png"
 
 const offense_player5 = new Image()
-offense_player5.src = "offense.png"
+offense_player5.src = "../assets/offense.png"
 
 const defense_player1 = new Image()
-defense_player1.src = "defense.png"
+defense_player1.src = "../assets/defense.png"
 
 const defense_player2 = new Image()
-defense_player2.src = "defense.png"
+defense_player2.src = "../assets/defense.png"
 
 const defense_player3 = new Image()
-defense_player3.src = "defense.png"
+defense_player3.src = "../assets/defense.png"
 
 const defense_player4 = new Image()
-defense_player4.src = "defense.png"
+defense_player4.src = "../assets/defense.png"
 
 const defense_player5 = new Image()
-defense_player5.src = "defense.png"
+defense_player5.src = "../assets/defense.png"
 
 let canvasChange = false;
 

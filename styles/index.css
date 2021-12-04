@@ -25,7 +25,7 @@ body {
 
 #canvas {
     /* border: 1px solid red; */
-    background-image: url('half_court.png');
+    background-image: url('../assets/half_court.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 80%;
