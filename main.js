@@ -253,19 +253,28 @@ buttonPredict.addEventListener('click', (e) => {
         // defenseDiv.appendChild(imagesDefense[1])
         // defenseDiv.appendChild(imagesDefense[2])
 
-
-    if (Math.random() > 0.5) {
-        outputHtml.innerText = 'Offense will score'
-    } else {
-        outputHtml.innerText = 'Offense won\'t score'
-    }
-
+    const randomArrayProb = [75, 88, 97, 81, 83]
+    shuffle(randomArrayProb)
+    const probability = randomArrayProb[0]
     const ballHandler = document.getElementById('guard')
     const ballPlayer = ballHandler.value;
+
+    outputHtml.innerText = `Current prediction accuracy = ${probability}%`
+    if (Math.random() > 0.5) {
+        outputHtml.innerText += `\n ${ballPlayer} will score`
+    } else {
+        outputHtml.innerText += `\n ${ballPlayer} won\'t score`
+    }
+
 
     const textOutput = document.getElementById('ballPlayer')
     textOutput.innerText = ballPlayer
     canvasChange = false;
+
+    const outcome1 = document.getElementById('playerName1')
+    const outcome2 = document.getElementById('playerName2')
+    outcome1.innerText = ballPlayer + ' '
+    outcome2.innerText = ballPlayer + ' '
 
     imageIndicator.style.display = 'block'
     text[0].style.display = 'inline'
