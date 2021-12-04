@@ -67,17 +67,18 @@ nav {
 }
 
 .output .outputText {
-    margin-top: 5%;
+    margin-top: 1%;
     padding: 10px;
     border: red 1px solid;
 }
 
 .heatmaps {
     width: 100%;
-    margin-top: 5%;
+    margin-top: 1%;
 }
 
 .heatmap-container {
+    width: 100%;
     display: flex;
     justify-content: space-around;
 }
@@ -104,9 +105,15 @@ nav {
     width: 166px;
 }
 
+.inputs {
+    padding-right: 5%;
+}
+
 .container .input-menus {
     display: flex;
+    gap: 10px;
     justify-content: center;
+    margin-top: 40px;
     margin-bottom: 25px;
 }
 
@@ -115,7 +122,13 @@ nav {
 }
 
 .text-container {
-    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.feedback-text {
+    font-weight: bold;
+    font-size: 16;
 }
 
 #ballPlayer {
@@ -123,7 +136,7 @@ nav {
 }
 
 .feedback {
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 label[for="offense"] {

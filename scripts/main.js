@@ -259,12 +259,12 @@ buttonPredict.addEventListener('click', (e) => {
     const ballHandler = document.getElementById('guard')
     const ballPlayer = ballHandler.value;
 
-    outputHtml.innerText = `Current prediction accuracy = ${probability}%`
     if (Math.random() > 0.5) {
-        outputHtml.innerText += `\n ${ballPlayer} will score`
+        outputHtml.innerText = `${ballPlayer} will score`
     } else {
-        outputHtml.innerText += `\n ${ballPlayer} won\'t score`
+        outputHtml.innerText = `${ballPlayer} won\'t score`
     }
+    outputHtml.innerText += `\nConfidence level = ${probability}%`
 
 
     const textOutput = document.getElementById('ballPlayer')
